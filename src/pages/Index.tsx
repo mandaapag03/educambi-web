@@ -1,7 +1,7 @@
 import { Header } from "@/components/Header";
 import { SubjectCard } from "@/components/SubjectCard";
 import { Button } from "@/components/ui/button";
-import { Calculator, BookOpen, Flask, Globe, PenTool, Binary } from "lucide-react";
+import { Calculator, BookOpen, TestTube2, Globe, PenTool, Binary } from "lucide-react";
 
 const Index = () => {
   const subjects = [
@@ -18,7 +18,7 @@ const Index = () => {
     {
       title: "Science",
       description: "Dive into physics, chemistry, and biology through experiments",
-      Icon: Flask,
+      Icon: TestTube2,
     },
     {
       title: "History",
