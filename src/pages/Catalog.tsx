@@ -10,7 +10,8 @@ const Catalog = () => {
       schedule: "Mon/Wed/Fri 9:00 AM",
       instructor: "Dr. Sarah Johnson",
       students: "20 enrolled",
-      level: "Advanced"
+      level: "Advanced",
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80"
     },
     {
       title: "World Literature",
@@ -18,7 +19,8 @@ const Catalog = () => {
       schedule: "Tue/Thu 10:30 AM",
       instructor: "Prof. Michael Chen",
       students: "15 enrolled",
-      level: "Intermediate"
+      level: "Intermediate",
+      image: "https://images.unsplash.com/photo-1458668383970-8ddd3927deed?auto=format&fit=crop&w=800&q=80"
     },
     {
       title: "Physics Fundamentals",
@@ -26,7 +28,8 @@ const Catalog = () => {
       schedule: "Mon/Wed 2:00 PM",
       instructor: "Dr. Robert Miller",
       students: "18 enrolled",
-      level: "Intermediate"
+      level: "Intermediate",
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80"
     },
     {
       title: "World History",
@@ -34,7 +37,8 @@ const Catalog = () => {
       schedule: "Tue/Thu 1:00 PM",
       instructor: "Prof. Emily White",
       students: "25 enrolled",
-      level: "Beginner"
+      level: "Beginner",
+      image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=800&q=80"
     }
   ];
 
@@ -48,7 +52,14 @@ const Catalog = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {classes.map((classItem, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
+              <Card key={index} className="hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+                <div className="relative h-48 w-full">
+                  <img 
+                    src={classItem.image} 
+                    alt={classItem.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <CardHeader>
                   <CardTitle className="text-2xl text-education-700">{classItem.title}</CardTitle>
                 </CardHeader>
