@@ -1,21 +1,23 @@
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { Button } from "./ui/button";
+import { ThemeToggle } from "./ThemeToggle";
 
 export const Header = () => {
   return (
-    <header className="w-full py-4 px-6 bg-white/80 backdrop-blur-sm fixed top-0 z-50 border-b">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-education-700 to-education-500 bg-clip-text text-transparent">
-          EduHub
-        </Link>
-        <nav className="hidden md:flex gap-6 items-center">
-          <Link to="/catalog" className="text-gray-600 hover:text-gray-900">Catalog</Link>
-          <a href="#" className="text-gray-600 hover:text-gray-900">Resources</a>
-          <a href="#" className="text-gray-600 hover:text-gray-900">About</a>
-          <Button variant="default" className="bg-education-500 hover:bg-education-700">
-            Get Started
-          </Button>
-        </nav>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b">
+      <div className="container mx-auto px-4">
+        <div className="flex h-16 items-center justify-between">
+          <Link to="/" className="text-2xl font-bold text-education-700">
+            EduHub
+          </Link>
+          
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
+            <Link to="/catalog">
+              <Button variant="outline">Browse Courses</Button>
+            </Link>
+          </div>
+        </div>
       </div>
     </header>
   );
