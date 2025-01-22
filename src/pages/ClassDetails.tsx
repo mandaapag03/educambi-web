@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { FileText, Video, Globe, BookOpen } from "lucide-react";
 
 const ClassDetails = () => {
   const { id } = useParams();
@@ -33,7 +35,25 @@ const ClassDetails = () => {
           response: "I'm glad you found it helpful! The unit circle is fundamental to understanding trigonometry. I'll cover this in more detail in the next lecture.",
           responseAuthor: "Dr. Sarah Johnson",
         }
-      ]
+      ],
+      materials: {
+        documents: [
+          { title: "Calculus Fundamentals", url: "#", size: "2.3 MB" },
+          { title: "Practice Problems Set 1", url: "#", size: "1.1 MB" },
+        ],
+        videos: [
+          { title: "Understanding Derivatives", url: "#", duration: "15:30" },
+          { title: "Integration Techniques", url: "#", duration: "20:45" },
+        ],
+        articles: [
+          { title: "History of Calculus", url: "#", source: "Mathematics Today" },
+          { title: "Real-world Applications", url: "#", source: "Science Weekly" },
+        ],
+        books: [
+          { title: "Advanced Calculus: A Complete Guide", url: "#", author: "Dr. Sarah Johnson" },
+          { title: "Trigonometry in Practice", url: "#", author: "Mathematical Society" },
+        ],
+      }
     },
     {
       id: 2,
@@ -42,7 +62,13 @@ const ClassDetails = () => {
       instructor: "Prof. Michael Chen",
       image: "https://images.unsplash.com/photo-1458668383970-8ddd3927deed?auto=format&fit=crop&w=800&q=80",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      comments: []
+      comments: [],
+      materials: {
+        documents: [],
+        videos: [],
+        articles: [],
+        books: [],
+      }
     },
     {
       id: 3,
@@ -51,7 +77,13 @@ const ClassDetails = () => {
       instructor: "Dr. Robert Miller",
       image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      comments: []
+      comments: [],
+      materials: {
+        documents: [],
+        videos: [],
+        articles: [],
+        books: [],
+      }
     },
     {
       id: 4,
@@ -60,7 +92,13 @@ const ClassDetails = () => {
       instructor: "Prof. Emily White",
       image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=800&q=80",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      comments: []
+      comments: [],
+      materials: {
+        documents: [],
+        videos: [],
+        articles: [],
+        books: [],
+      }
     }
   ];
 
@@ -95,6 +133,83 @@ const ClassDetails = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">{classData.description}</p>
+                </CardContent>
+              </Card>
+
+              <Card className="mb-8">
+                <CardHeader>
+                  <CardTitle>Additional Materials</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <Accordion type="single" collapsible className="w-full">
+                    <AccordionItem value="documents">
+                      <AccordionTrigger className="flex items-center gap-2">
+                        <FileText className="h-5 w-5" />
+                        Documents
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className="space-y-2">
+                          {classData.materials?.documents.map((doc, index) => (
+                            <div key={index} className="flex items-center justify-between p-2 hover:bg-gray-50 rounded">
+                              <span className="text-gray-700">{doc.title}</span>
+                              <span className="text-sm text-gray-500">{doc.size}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+
+                    <AccordionItem value="videos">
+                      <AccordionTrigger className="flex items-center gap-2">
+                        <Video className="h-5 w-5" />
+                        Additional Videos
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className="space-y-2">
+                          {classData.materials?.videos.map((video, index) => (
+                            <div key={index} className="flex items-center justify-between p-2 hover:bg-gray-50 rounded">
+                              <span className="text-gray-700">{video.title}</span>
+                              <span className="text-sm text-gray-500">{video.duration}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+
+                    <AccordionItem value="articles">
+                      <AccordionTrigger className="flex items-center gap-2">
+                        <Globe className="h-5 w-5" />
+                        Articles
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className="space-y-2">
+                          {classData.materials?.articles.map((article, index) => (
+                            <div key={index} className="flex items-center justify-between p-2 hover:bg-gray-50 rounded">
+                              <span className="text-gray-700">{article.title}</span>
+                              <span className="text-sm text-gray-500">{article.source}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+
+                    <AccordionItem value="books">
+                      <AccordionTrigger className="flex items-center gap-2">
+                        <BookOpen className="h-5 w-5" />
+                        E-Books
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className="space-y-2">
+                          {classData.materials?.books.map((book, index) => (
+                            <div key={index} className="flex items-center justify-between p-2 hover:bg-gray-50 rounded">
+                              <span className="text-gray-700">{book.title}</span>
+                              <span className="text-sm text-gray-500">{book.author}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
                 </CardContent>
               </Card>
             </div>
