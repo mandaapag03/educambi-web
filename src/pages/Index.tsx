@@ -42,16 +42,19 @@ const Index = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-6 bg-gradient-to-r from-education-700 to-education-500 text-white">
+      <section className="pt-32 pb-16 px-6 bg-gradient-to-r from-education-700 to-education-500">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-2xl">
-            <h1 className="text-5xl font-bold mb-6">
+            <h1 className="text-5xl font-bold mb-6 text-white">
               Your Journey to Academic Excellence Starts Here
             </h1>
-            <p className="text-xl mb-8 text-gray-100">
+            <p className="text-xl mb-8 text-white/90">
               Access comprehensive high school courses, interactive materials, and expert guidance all in one place.
             </p>
-            <Button size="lg" variant="secondary" className="text-education-700">
+            <Button 
+              size="lg" 
+              className="bg-white text-education-700 hover:bg-gray-100 transition-colors"
+            >
               Start Learning Now
             </Button>
           </div>
