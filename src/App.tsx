@@ -11,21 +11,21 @@ import ClassDetails from "./pages/ClassDetails";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <ThemeProvider defaultTheme="system" enableSystem>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
+  <BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider defaultTheme="system" enableSystem>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/catalog" element={<Catalog />} />
             <Route path="/class/:id" element={<ClassDetails />} />
           </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </ThemeProvider>
-  </QueryClientProvider>
+        </TooltipProvider>
+      </ThemeProvider>
+    </QueryClientProvider>
+  </BrowserRouter>
 );
 
 export default App;
